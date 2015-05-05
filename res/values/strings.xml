@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">YLCZjqNFC_Android</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+	
+	<!--地址 -->
+    <string name="bj_urlb">http://www.hzt360.com/phoneManager</string>
+    <!-- 闪屏广告图片 -->
+    <string name="ad_img">http://pic.hzt360.com/images/beijing/money02.png</string>
+</resources>
