@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="greed">#ff119f2f</color>
+    <color name="gray">#EAEAEA</color>
+    <color name="purple">#b42bed</color>
+    <color name="yellow">#f5f212</color>
+    <color name="bule1">#06587e</color>
+    <color name="gray1">#a1a4a4</color>
+    <color name="gray2">#d0d2d2</color>
+    <color name="gray3">#eaebeb</color>
+    <color name="gray4">#cccecf</color>
+    <color name="gray5">#71707e</color>
+    <color name="gray6">#929292</color>
+    <color name="tabwordwhite">#faf9f9</color>
+    <color name="banblack">#000000</color>
+    <color name="mycardbgc">#f5f5f5</color>
+    <color name="weidenglutextc">#1e70bc</color>
+    <color name="shoujihaotc">#000</color>
+    <!-- 默认黑 -->
+    <color name="black">#666666</color>
+    <!-- 纯黑 -->
+    <color name="bk_black">#000000</color>
+    <!-- 默认白 -->
+    <color name="white">#FFFFFF</color>
+    <!-- 默认蓝 -->
+    <color name="blue">#55A0D0</color>
+    <!-- 默认红 -->
+    <color name="red">#FA8B29</color>
+    <!-- 背景灰 -->
+    <color name="bk_grey">#eeeeee</color>
+    <!-- 文字白 -->
+    <color name="word_white">#FFFFFF</color>
+    <!-- 文字灰 -->
+    <color name="word_grey">#C2C2C2</color>
+    <!-- 文字绿 -->
+    <color name="word_green">#7E8C57</color>
+    <!-- 文字红 -->
+    <color name="word_red">#E15757</color>
+    <!-- 文字金 #765E5A -->
+    <color name="word_gold">#666666</color>
+    <!-- 按钮蓝按下 -->
+    <color name="btn_blue_pass">#98BFE9</color>
+    <!-- 线灰 -->
+    <color name="line_grey">#E7E7E7</color>
+    <!-- list灰色 -->
+    <color name="list_grey">#E7E7E7</color>
+    
+    <color name="button_red">#cf3737</color>
+    
+    <!--  文字灰色1-->
+	<color name="word_grey2">#c4c3c3</color>
+    <!-- 模块背景色 -->
+    <color name="grid_blue">#1A3846</color>
+    <!-- 抽奖title -->
+    <color name="title_red">#f09813</color>
+    <!-- letter背景 -->
+    <color name="bk_letter">#40000000</color>
+    <!-- 网络1 -->
+    <color name="btn_net_nor">#F3F1DA</color>
+    <!-- 网络2 -->
+    <color name="btn_net_pas">#FEFCEA</color>
+    <!-- 滚轮黑 -->
+    <color name="wheel_black">#999999</color>
+    <!-- 按钮红正常 -->
+    <color name="btnRedNor">#F15050</color>
+    <!-- 按钮红按下 -->
+    <color name="btnRedPass">#E15757</color>
+    <!-- 透明 -->
+    <color name="transparent">#00000000</color>
+    <color name="btn_nor">#F8F7F7</color>
+    <!-- 二维码用到的颜色值 -->
+    <color name="red1">#f22b2b</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_frame">#ff000000</color>
+    <color name="viewfinder_laser">#ffff0000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <!-- 我的公交卡背景色 -->
+    <color name="mycard_bgcolor">#424445</color>
+    <color name="line_bgcolor">#79797c</color>
+    <color name="prompt_textcolor">#ecf37b</color>
+    
+    <!-- 新版我的交通卡背景颜色 -->
+    <color name="mycard_color">#eee</color>
+    
+    <color name="mycard_textcolor">#000</color>
+    <!-- 我的卡背景 -->
+    <color name="mycardbg11_color">#f8f7f7</color>
+    <color name="mycardtext_color">#b5b8b8</color>
+    <color name="mycardtextxzbg_color">#e2f0c2</color>
+    
+     <color name="mycardxuankabg11">#96cef0</color>
+     
+      <color name="mycardxuankabg">#96cef0</color>
+     <color name="mycardxuankabg_sel">#2588bb</color>
+     
+      <color name="refundbuttonbg">#FFFF0000</color>
+     
+   
+     
+     
+    
+</resources>
