@@ -29,6 +29,11 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 
+/**
+ * 用于进行SSL联网认证的工具类
+ * @author Administrator
+ *
+ */
 public class HttpClientHelper {
 
 	private static HttpClient httpClient;

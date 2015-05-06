@@ -37,7 +37,7 @@ import com.ylczjqnfc.R;
 import com.ylczjqnfc.controller.GlobalVar;
 
 /**
- * 封装联网的工具类
+ * 用于向服务器发送请求的工具类
  * @author Administrator
  *
  */
@@ -47,8 +47,7 @@ public class HttpUtil {
 	private static final String norTime = "12000";
 	private static final String rechangeTime = "30000";
 
-	public HttpUtil(Context mContext){
-		this.mContext = mContext;
+	public HttpUtil(){
 	}
 	//向服务器发送请求
 	/*public String Apdu_SendMessage(List<NameValuePair> firstParams)

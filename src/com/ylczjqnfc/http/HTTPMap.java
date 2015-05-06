@@ -1,5 +1,10 @@
 package com.ylczjqnfc.http;
 
+/**
+ * 用于存放所有接口的类
+ * @author Administrator
+ *
+ */
 public class HTTPMap {
 	// 客户端添加的
 	public static final String HTTP_FAILURE = "9999";

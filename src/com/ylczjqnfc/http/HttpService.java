@@ -10,7 +10,11 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-
+/**
+ * 用于服务的类
+ * @author Administrator
+ *
+ */
 public class HttpService {
 	
 	/*private static final String TAG = "HttpService";

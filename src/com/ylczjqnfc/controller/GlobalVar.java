@@ -1,5 +1,9 @@
 package com.ylczjqnfc.controller;
-
+/**
+ * 用于设置全局变量的类
+ * @author Administrator
+ *
+ */
 public class GlobalVar {
 
 	public static final int ERROR = 0;

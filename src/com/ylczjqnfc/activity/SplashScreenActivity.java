@@ -23,16 +23,22 @@ import com.ylczjqnfc.utils.ImageMemoryCache;
 import com.ylczjqnfc.utils.LogUtil;
 import com.ylczjqnfc.utils.NetworkState;
 
+/**
+ * 闪屏的类，同时也是第一个类
+ * 
+ * @author Administrator
+ * 
+ */
 public class SplashScreenActivity extends Activity {
 
-	private ImageView serverSplashImg;//服务器的广告图片
+	private ImageView serverSplashImg;// 服务器的广告图片
 	private ImageMemoryCache memoryCache;
 	private ImageFileCache fileCache;
 	private Context mContext;
-	
-	private final int GET_IDIMAG = 1;//获取闪屏网络图片（(1)从内存缓存中获 (2)从文件缓存中获取 (3)从网络资源中下载获取）
-	
-	
+
+	private final int GET_IDIMAG = 1;// 获取闪屏网络图片（(1)从内存缓存中获 (2)从文件缓存中获取
+										// (3)从网络资源中下载获取）
+
 	public Handler netHandler = new Handler(new Callback() {
 		@Override
 		public boolean handleMessage(Message msg) {
@@ -50,16 +56,17 @@ public class SplashScreenActivity extends Activity {
 		}
 	});
 
-	String imgDownloadUrl = null;//网络下载的地址
+	String imgDownloadUrl = null;// 网络下载的地址
 	Bitmap splashyBitmap = null;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splashy);
 		mContext = this;
 		initViews();
-		
-		if(NetworkState.isNetworkAvailable(mContext)){
+		// 判断是否有网络
+		if (NetworkState.isNetworkAvailable(mContext)) {
 			if (imgDownloadUrl != null) {
 				new Thread() {
 					@Override
@@ -69,27 +76,17 @@ public class SplashScreenActivity extends Activity {
 					};
 				}.start();
 			}
-		}else{
+		} else {
 			splashyBitmap = getBitmap(imgDownloadUrl);
 			netHandler.sendEmptyMessage(GET_IDIMAG);
 			Toast.makeText(mContext, "网络连接超时", 1).show();
 		}
 		
-		
-		try {
-			HttpUtil httpUtil = new HttpUtil(mContext);
-			String jsonString = httpUtil.doHttpsPost(imgDownloadUrl, "1");
-			Person person = GsonTools.getPerson(jsonString, Person.class);
-			LogUtil.i(GlobalVar.TAG, "---->"+person.toString());
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		
-		
+		new Thread(new MyThread()).start();
+
 	}
-	
-	//获取广告图的方法
+
+	// 获取广告图的方法
 	public Bitmap getBitmap(String url) {
 		// 从内存缓存中获取图片
 		Bitmap result = null;
@@ -116,12 +113,12 @@ public class SplashScreenActivity extends Activity {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * 初始化视图
 	 */
-	public void initViews(){
-		serverSplashImg = (ImageView)findViewById(R.id.server_img_id);
+	public void initViews() {
+		serverSplashImg = (ImageView) findViewById(R.id.server_img_id);
 		memoryCache = new ImageMemoryCache(this);
 		fileCache = new ImageFileCache();
 		imgDownloadUrl = getResources().getString(R.string.ad_img);// 网络图片地址
@@ -135,4 +132,25 @@ public class SplashScreenActivity extends Activity {
 		return true;
 	}
 
+}
+
+class MyThread extends Thread {
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+		try {
+			HttpUtil httpUtil = new HttpUtil();
+//			String jsonString = httpUtil.doHttpsPost(imgDownloadUrl, "1");
+			String jsonString = httpUtil.doHttpsPost("http://192.168.1.229:8080/jsonProject2/json?action_flag=person", "1");
+			
+			Person person = GsonTools.getT(jsonString, Person.class);
+			LogUtil.i(GlobalVar.TAG, "---->"+person.toString());
+			String s = person.toString();
+			System.out.println(s);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
 }
