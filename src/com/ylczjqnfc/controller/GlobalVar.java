@@ -14,7 +14,7 @@ public class GlobalVar {
 
 	public static final boolean isExit = false;
 
-	// LogUtil
+	// LogUtil(统一管理日志)
 	public static boolean isDebug = true;
 
 	public static boolean isVerbose = true;
