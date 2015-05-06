@@ -1,6 +1,18 @@
 package com.ylczjqnfc.http;
 
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.util.HashMap;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.util.EntityUtils;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -59,5 +71,7 @@ public class MyAsynctask extends AsyncTask<String, Integer, String> {
 		
 		return result;
 	}
+	
+	
 	
 }

@@ -1,6 +1,8 @@
 package com.ylczjqnfc.http;
 
 import java.io.IOException;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -13,10 +15,12 @@ import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.CookieStore;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.scheme.Scheme;
 import org.apache.http.cookie.Cookie;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.AbstractHttpClient;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -30,6 +34,7 @@ import org.json.JSONObject;
 import android.content.Context;
 
 import com.ylczjqnfc.R;
+import com.ylczjqnfc.controller.GlobalVar;
 
 /**
  * 封装联网的工具类
@@ -38,7 +43,7 @@ import com.ylczjqnfc.R;
  */
 public class HttpUtil {
 	private static Context mContext;
-	public static final String URL = mContext.getResources().getString(R.string.bj_urlb);
+	public static final String URL = GlobalVar.imgDownloadUrl;
 	private static final String norTime = "12000";
 	private static final String rechangeTime = "30000";
 
@@ -46,7 +51,7 @@ public class HttpUtil {
 		this.mContext = mContext;
 	}
 	//向服务器发送请求
-	public static String Apdu_SendMassage(List<NameValuePair> firstParams)
+	/*public String Apdu_SendMessage(List<NameValuePair> firstParams)
 			throws KeyManagementException, NoSuchAlgorithmException,
 			KeyStoreException, UnrecoverableKeyException, IOException {
 		// 创建一个本地Cookie存储的实例
@@ -182,6 +187,47 @@ public class HttpUtil {
 		}
 
 		return msgType;
-	}
+	}*/
+	
+	/**
+     * Post请求连接Https服务
+     * @param serverURL  请求地址
+     * @param jsonStr    请求报文
+     * @return
+     * @throws Exception
+     */
+    public static synchronized String doHttpsPost(String serverURL, String jsonStr)throws Exception {
+        // 参数
+        HttpParams httpParameters = new BasicHttpParams();
+        // 设置连接超时
+        HttpConnectionParams.setConnectionTimeout(httpParameters, 3000);
+        // 设置socket超时
+        HttpConnectionParams.setSoTimeout(httpParameters, 3000);
+        // 获取HttpClient对象 （认证）
+        HttpClient hc = HttpClientHelper.getHttpClient(httpParameters);
+		HttpPost post = new HttpPost(serverURL);
+
+        // 发送数据类型
+        post.addHeader("Content-Type", "application/json;charset=utf-8");
+        // 接受数据类型
+        post.addHeader("Accept", "application/json");
+        // 请求报文
+        StringEntity entity = new StringEntity(jsonStr, "UTF-8");
+        post.setEntity(entity);
+        post.setParams(httpParameters);
+        HttpResponse response = null;
+        try {
+            response = hc.execute(post);
+        } catch (UnknownHostException e) {
+            throw new Exception("Unable to access " + e.getLocalizedMessage());
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+        int sCode = response.getStatusLine().getStatusCode();
+        if (sCode == HttpStatus.SC_OK) {
+            return EntityUtils.toString(response.getEntity());
+        } else
+            throw new Exception("StatusCode is " + sCode);
+    }
 	
 }
