@@ -13,9 +13,14 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.ylczjqnfc.R;
+import com.ylczjqnfc.controller.GlobalVar;
+import com.ylczjqnfc.http.HttpUtil;
+import com.ylczjqnfc.pojo.Person;
+import com.ylczjqnfc.utils.GsonTools;
 import com.ylczjqnfc.utils.ImageFileCache;
 import com.ylczjqnfc.utils.ImageGetFromHttp;
 import com.ylczjqnfc.utils.ImageMemoryCache;
+import com.ylczjqnfc.utils.LogUtil;
 import com.ylczjqnfc.utils.NetworkState;
 
 public class SplashScreenActivity extends Activity {
@@ -70,8 +75,21 @@ public class SplashScreenActivity extends Activity {
 			Toast.makeText(mContext, "网络连接超时", 1).show();
 		}
 		
+		
+		try {
+			HttpUtil httpUtil = new HttpUtil(mContext);
+			String jsonString = httpUtil.doHttpsPost(imgDownloadUrl, "1");
+			Person person = GsonTools.getPerson(jsonString, Person.class);
+			LogUtil.i(GlobalVar.TAG, "---->"+person.toString());
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		
 	}
 	
+	//获取广告图的方法
 	public Bitmap getBitmap(String url) {
 		// 从内存缓存中获取图片
 		Bitmap result = null;
@@ -99,11 +117,15 @@ public class SplashScreenActivity extends Activity {
 		return result;
 	}
 	
+	/**
+	 * 初始化视图
+	 */
 	public void initViews(){
 		serverSplashImg = (ImageView)findViewById(R.id.server_img_id);
 		memoryCache = new ImageMemoryCache(this);
 		fileCache = new ImageFileCache();
 		imgDownloadUrl = getResources().getString(R.string.ad_img);// 网络图片地址
+		GlobalVar.imgDownloadUrl = imgDownloadUrl;
 	}
 
 	@Override
