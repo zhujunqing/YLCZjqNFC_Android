@@ -29,13 +29,22 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
             <meta-data
                 android:name="com.xesam.key_1"
                 android:value="x_key" />
         </activity>
         <!-- <activity android:name="com.ylczjqnfc.test.TestActivity" >
         </activity> -->
+        <activity android:name="com.ylczjqnfc.test.ObjectAnimActivity">
+            
+        </activity>
+        <activity android:name="com.ylczjqnfc.test.ObjectAnimActivity2">
+            
+        </activity>
+        <activity android:name="com.ylczjqnfc.test.MyAlbumListActivity">
+            
+        </activity>
+        <activity android:name="com.ylczjqnfc.activity.MainActivity"></activity>
     </application>
 
 </manifest>

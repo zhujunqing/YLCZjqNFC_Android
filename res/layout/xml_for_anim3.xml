@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/xbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="18dp"
+        android:layout_marginLeft="35dp"
+        android:text="横向拉伸"
+        android:onClick="horizontalStretch" />
+
+    <Button
+        android:id="@+id/xybutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/xbutton"
+        android:layout_alignBottom="@+id/xbutton"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        android:text="横竖向拉伸" 
+        android:onClick="horizontalVerticalStretch"
+        />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="169dp"
+        android:src="@drawable/ic_launcher" />
+
+</RelativeLayout>
