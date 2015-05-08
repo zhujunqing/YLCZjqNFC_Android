@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">YLCZjqNFC_Android</string>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <string name="app_name">我的e乐充</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
 	
