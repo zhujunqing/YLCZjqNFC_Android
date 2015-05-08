@@ -1,31 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ylczjqnfc.utils.viewTools.SlidingMenu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:zhy="http://schemas.android.com/apk/res/com.ylczjqnfc.utils.viewTools"
-    android:id="@+id/id_menu"
-    android:layout_width="wrap_content"
-    android:layout_height="fill_parent"
-    android:background="@drawable/img_frame_background"
-    android:scrollbars="none"
-    rightPadding="100dp" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zhu="http://schemas.android.com/apk/res/com.ylczjqnfc"
+    xmlns:tools="http://schemas.android.com/tools" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
-    <LinearLayout
+    <com.ylczjqnfc.utils.viewTools.SlidingMenu
+        android:id="@+id/id_menu"
         android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal" >
-
-        <include layout="@layout/layout_menu" />
+        android:layout_height="match_parent"
+        android:background="@drawable/img_frame_background"
+        android:scrollbars="none"
+        zhu:rightPadding="100dp" >
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="toggleMenu"
-                android:text="切换菜单" />
+            <include layout="@layout/layout_menu" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#eee"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="toggleMenu"
+                        android:text="切换菜单" />
+
+                    <LinearLayout
+                        android:id="@+id/title"
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/title_bar"
+                        android:gravity="center_horizontal|center_vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="title"
+                            android:textColor="#ffffff"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </com.ylczjqnfc.utils.viewTools.SlidingMenu>
 
-</com.ylczjqnfc.utils.viewTools.SlidingMenu>
+    <android.support.v4.view.ViewPager   
+        android:id="@+id/viewpager"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_gravity="center" >
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>
